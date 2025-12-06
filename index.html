@@ -40,6 +40,17 @@
     transform: scale(1.03);
     z-index: 0;
   }
+  
+  /* Escurecimento sem perder a imagem */
+.background-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 9, 21, 0.72); /* ajuste o valor para mais ou menos escuro */
+  z-index: 1;
+  pointer-events: none;
+}
+  
   @keyframes moverFundo {
     0%   { background-position: 0% 50%; }
     50%  { background-position: 50% 50%; }
