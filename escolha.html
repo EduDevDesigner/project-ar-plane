@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Escolha o Tema</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== BASE ===== */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+  overflow: hidden;
+  background: #000;
+}
+
+/* ===== FUNDO ===== */
+.fundo {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url('Imagens/Funda_Escolha.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  will-change: background-position;
+}
+
+/* animação lenta do fundo para telas mobile */
+@media (max-width: 768px) {
+  @keyframes panCenter {
+    0%   { background-position: 50% 50%; }
+    50%  { background-position: 47% 50%; }
+    100% { background-position: 50% 50%; }
+  }
+  .fundo {
+    animation: panCenter 10s ease-in-out infinite;
+  }
+}
+
+/* ===== PAINEL CENTRAL ===== */
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centraliza verticalmente */
+  align-items: center;     /* centraliza horizontalmente */
+}
+
+.panel {
+  background:  rgba(0, 0, 0, 0.1);
+  padding: 60px 50px;
+  border-radius: 25px;
+  border: 10px solid rgb(153, 0, 255);
+  box-shadow: 0 0 30px rgba(0,255,200,0.4),
+              inset 0 0 40px rgba(0,255,200,0.25);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  animation: pulsePanel 4s ease-in-out infinite alternate;
+  align-items: center; /* centraliza horizontalmente */
+}
+
+@keyframes pulsePanel {
+  from { box-shadow: 0 0 30px rgba(0,255,200,0.4), inset 0 0 40px rgba(0,255,200,0.25); }
+  to   { box-shadow: 0 0 50px rgba(0,255,255,0.6), inset 0 0 60px rgba(0,255,200,0.3); }
+}
+
+/* ===== BOTÕES CENTRAIS ===== */
+.card {
+  position: relative;
+  cursor: pointer;
+  width: 260px;
+  border: none;
+  background: transparent;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(0,255,255,0.6),
+              0 0 35px rgba(0,255,255,0.3) inset;
+  animation: glowBtn 2.5s ease-in-out infinite alternate;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+@keyframes glowBtn {
+  0%   { box-shadow: 0 0 20px rgba(0,255,255,0.6),
+                 0 0 35px rgba(0,255,255,0.3) inset; }
+  50%  { box-shadow: 0 0 35px rgba(0,255,255,0.8),
+                 0 0 50px rgba(0,255,255,0.5) inset; }
+  100% { box-shadow: 0 0 20px rgba(0,255,255,0.6),
+                 0 0 35px rgba(0,255,255,0.3) inset; }
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+/* ===== BOTÃO VOLTAR ===== */
+.btn-futurista2 {
+  margin-top: 30px; /* distância do painel */
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0,255,255,0.6),
+              0 0 35px rgba(0,255,255,0.4);
+  animation: glowBtn 2.5s ease-in-out infinite alternate;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-futurista2 img {
+  width: 260px;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+.btn-futurista2:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 45px rgba(0,255,255,0.9),
+              0 0 65px rgba(0,255,255,0.6);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  .panel { gap: 35px; padding: 50px 40px; }
+  .card, .btn-futurista2 img { width: 220px; }
+}
+
+@media (max-width: 480px) {
+  .panel { gap: 28px; padding: 40px 30px; }
+  .card, .btn-futurista2 img { width: 180px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Fundo -->
+<div class="fundo" aria-hidden="true"></div>
+
+<!-- Painel central com botões em coluna -->
+<div class="container">
+  <div class="panel">
+    <div class="card" onclick="location.href='apresentacao_aviao.html'">
+      <img src="Imagens/btn_Aviao.png" alt="Avião">
+    </div>
+
+    <div class="card" onclick="location.href='apresentacao_carro.html'">
+      <img src="Imagens/btn_Carro.png" alt="Carro">
+    </div>
+
+    <div class="card" onclick="location.href='navio.html'">
+      <img src="Imagens/btn_navio.png" alt="Navio">
+    </div>
+  </div>
+
+  <!-- Botão Voltar abaixo do painel -->
+  <button class="btn-futurista2" onclick="location.href='index.html'">
+    <img src="Imagens/btn_voltar.png" alt="Voltar">
+  </button>
+</div>
+
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.fullscreenElement == null) {
+    // tenta entrar em fullscreen de novo
+    document.documentElement.requestFullscreen().catch(err => {
+      console.warn('Fullscreen falhou:', err);
+    });
+  }
+});
+</script>
+  
+</body>
+</html>

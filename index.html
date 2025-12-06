@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Início</title>
+
+<!-- Font Awesome (Instagram e Facebook) -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<style>
+  :root{
+    --instagram: #E1306C;
+    --facebook: #1877F2;
+    --x-bg: #000;
+    --x-fill: #fff;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
+    background: #000;
+    color: #fff;
+  }
+
+  /* Fundo geral */
+  .background-container {
+    position: fixed;
+    inset: 0;
+    background-image: url('Imagens/Fundo_Index.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    animation: moverFundo 80s linear infinite;
+    filter: blur(2px);
+    transform: scale(1.03);
+    z-index: 0;
+  }
+  @keyframes moverFundo {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 50% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Container principal */
+  .container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Imagem de menu (no lugar do painel) - reduzida */
+  .menu-img {
+    max-width: 60%;     /* 🔹 reduzida de 90% para 60% */
+    height: auto;
+    
+    animation: pulseMenu 4s ease-in-out infinite alternate;
+  }
+  
+
+  /* Logo flutuante */
+  .logo {
+    max-width: 55%;     /* 🔹 ligeiramente menor para equilibrar */
+    height: auto;
+    margin-bottom: 20px;
+    animation: flutuarLogo 3s ease-in-out infinite;
+    z-index: 3;
+  }
+  @keyframes flutuarLogo {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+  }
+
+  /* Botões na frente da imagem */
+  .buttons-container {
+    position: absolute;
+    top: 50%;           /* 🔹 Ajuste este valor para baixar mais */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    z-index: 4;
+  }
+
+  .card {
+    position: relative;
+    cursor: pointer;
+    width: 220px;   /* 🔹 levemente menor para harmonia */
+    border: none;
+    background: transparent;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 18px rgba(0,255,255,0.6),
+                0 0 30px rgba(0,255,255,0.3) inset;
+    animation: glowBtn 2.8s ease-in-out infinite alternate;
+    transition: transform 0.25s ease;
+  }
+  .card img { width: 100%; height:auto; display:block; border-radius:20px; }
+  .card:hover { transform: scale(1.06); }
+  @keyframes glowBtn {
+    0%   { box-shadow: 0 0 16px rgba(0,255,255,0.5); }
+    50%  { box-shadow: 0 0 30px rgba(0,255,255,0.8); }
+    100% { box-shadow: 0 0 16px rgba(0,255,255,0.5); }
+  }
+
+  /* Redes Sociais */
+  .social-icons {
+    display: flex;
+    gap: 16px;
+    margin-top: 18px; 
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+  }
+  .social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform .18s ease, box-shadow .18s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  }
+  .social-icons a.instagram {
+    background: radial-gradient(circle at 30% 20%, #feda75 0%, #fa7e1e 20%, #d62976 50%, #962fbf 70%, #4f5bd5 100%);
+  }
+  .social-icons a.instagram i { color: #fff; font-size:18px; }
+
+  .social-icons a.facebook { background: var(--facebook); }
+  .social-icons a.facebook i { color: #fff; font-size:16px; }
+
+  .social-icons a.x { background: var(--x-bg); }
+  .social-icons a.x svg { display:block; width:18px; height:18px; stroke:#fff; }
+
+  .social-icons a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.5);
+  }
+
+  /* Responsividade */
+  @media (max-width:768px) {
+    .menu-img { max-width: 75%; } /* 🔹 mantém menor em telas médias */
+    .logo { max-width: 65%; }
+    .card { width: 200px; }
+  }
+  @media (max-width:480px) {
+    .menu-img { max-width: 85%; } /* 🔹 ajusta para telas pequenas */
+    .logo { max-width: 70%; }
+    .card { width: 160px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Fundo animado -->
+  <div class="background-container" aria-hidden="true"></div>
+
+  <div class="container">
+    <!-- Logo -->
+    <img src="Imagens/Logo_VertCare_Games.png" class="logo" alt="Logo VertCare Games">
+
+    <!-- Imagem do menu (reduzida) -->
+    <img src="Imagens/tela_Menu.png" class="menu-img" alt="Menu">
+
+    <!-- Botões sobre a imagem -->
+    <div class="buttons-container">
+      <button class="card" onclick="location.href='aviao.html'">
+        <img src="Imagens/btn_iniciar.png" alt="Iniciar">
+      </button>
+
+      <button class="card" onclick="location.href='sobre.html'">
+        <img src="Imagens/btn_Sobre.png" alt="Sobre">
+      </button>
+
+      <button class="card" onclick="location.href='creditos.html'">
+        <img src="Imagens/btn_Creditos.png" alt="Créditos">
+      </button>
+
+      <button class="card" onclick="sairPagina()">
+        <img src="Imagens/btn_sair.png" alt="Sair">
+      </button>
+    </div>
+
+    <!-- Redes sociais -->
+    <div class="social-icons">
+      <a class="instagram" href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram" aria-hidden="true"></i>
+      </a>
+
+      <a class="facebook" href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+      </a>
+
+      <a class="x" href="https://x.com" target="_blank" aria-label="X (ex-Twitter)">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6">
+            <path d="M5 5 L19 19"></path>
+            <path d="M19 5 L5 19"></path>
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function sairPagina() {
+      window.close();
+      window.location.href = "about:blank";
+    }
+  </script>
+
+</body>
+</html>
