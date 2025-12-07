@@ -11,18 +11,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Changa+One&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-/* ======== ESTILO GERAL ======== */
-body.tela-info {
-    margin: 0;
-    overflow: hidden;
-    font-family: 'Open Sans', sans-serif;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-}
+
+
 
 /* ======== FUNDO ANIMADO ======== */
 .fundo-animado {
@@ -103,13 +93,17 @@ body.tela-info {
 }
 
 /* ======== BOTÃO VOLTAR (MESMO ESTILO DA INDEX) ======== */
+/* Botão voltar centralizado no rodapé */
 .btn-voltar {
-    position: relative;
+    position: fixed;       /* fica fixo no rodapé */
+    bottom: 55px;          /* distância do fundo */
+    left: 50%;
+    transform: translateX(-50%); /* centraliza */
     cursor: pointer;
-    width: 240px; /* mesmo tamanho dos botões da index */
+    width: 200px;
     border: none;
     background: transparent;
-    border-radius: 20px;
+    border-radius: 50px;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -118,22 +112,34 @@ body.tela-info {
                 0 0 30px rgba(0,255,255,0.3) inset;
     animation: glowBtn 2.8s ease-in-out infinite alternate;
     transition: transform 0.25s ease;
-    margin-top: 25px;
 }
+
 .btn-voltar img {
     width: 100%;
     height: auto;
     display: block;
     border-radius: 20px;
 }
-.btn-voltar:hover {
-    transform: scale(1.06);
+
+
+    
+/* Centralizar e redimensionar a imagem dos créditos */
+.creditos-centro {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px; /* mantém boa distância da logo */
 }
-@keyframes glowBtn {
-    0%   { box-shadow: 0 0 16px rgba(0,255,255,0.5); }
-    50%  { box-shadow: 0 0 30px rgba(0,255,255,0.8); }
-    100% { box-shadow: 0 0 16px rgba(0,255,255,0.5); }
+
+.img-creditos {
+    width: 90%;         /* ocupa o centro sem exagerar */
+    max-width: 600px;   /* limite para telas grandes */
+    height: auto;       /* mantém proporção */
+    display: block;
 }
+
+    
 </style>
 </head>
 
@@ -147,20 +153,10 @@ body.tela-info {
         <img src="Imagens/Fundo_Navio.jpeg" alt="Fundo Navio" class="fundo">
     </div>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <div class="container">
-        <h2 class="titulo-destaque">CRÉDITOS</h2>
-        <div class="creditos-lista">
-            <p><strong>Programação:</strong> Eduardo Galdino</p>
-            <p><strong>Design e Arte:</strong> Eduardo Galdino</p>
-            <p><strong>UX/UI Design:</strong> Ticiane Melo</p>
-            <p><strong>Game Design:</strong> Eduardo Galdino / Ticiane Melo</p>
-            <p><strong>Sound Design:</strong> Eduardo Galdino</p>
-            <p><strong>Música:</strong> Trilha Original por DJ Pixel</p>
-            <p><strong>Plataforma:</strong> webXR</p>
-            <p>Obrigado a todos os apoiadores e jogadores!</p>
-        </div>
-    </div>
+    <!-- TELA CRÉDITOS -->
+    <div class="creditos-centro">
+    <img src="Imagens/tela_Creditos.png" alt="Tela Créditos" class="img-creditos">
+    </div>    
 
     <!-- BOTÃO VOLTAR -->
     <button onclick="location.href='index.html'" class="btn-voltar">
