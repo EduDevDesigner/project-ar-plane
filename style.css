@@ -167,27 +167,27 @@ body {
 /* Tela de fim de jogo sobreposta */
 #game-over-screen {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.85);
+  inset: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-#game-over-screen.hidden {
-  display: none;
+  justify-content: center;   /* centro horizontal */
+  align-items: center;       /* centro vertical */
+  background: rgba(0, 0, 0, 0.4); /* opcional: leve escurecimento */
+  z-index: 9999;
 }
 
 .game-over-content {
-  text-align: center;
-  font-family: 'Changa One', sans-serif;
-  color: yellow;
-  text-shadow: 2px 2px 5px black; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* espaço entre o título e o botão */
 }
+
+#game-over-message {
+  color: yellow;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  font-weight: normal;
+}
+
 
 .btn-futurista {
   padding: 12px 25px;
