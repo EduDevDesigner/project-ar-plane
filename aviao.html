@@ -6,7 +6,41 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-  </head>
+    
+    <style>
+      .card {
+    position: relative;
+    cursor: pointer;
+    width: 220px;   /* 🔹 levemente menor para harmonia */
+    border: none;
+    background: transparent;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 18px rgba(0,255,255,0.6),
+                0 0 30px rgba(0,255,255,0.3) inset;
+    animation: glowBtn 2.8s ease-in-out infinite alternate;
+    transition: transform 0.25s ease;
+  }
+  .card img { width: 100%; height:auto; display:block; border-radius:20px; }
+  .card:hover { transform: scale(1.06); }
+      
+      /* Responsividade */
+  @media (max-width:768px) {
+    
+    .card { width: 200px; }
+  }
+  @media (max-width:480px) {
+    
+    .card { width: 160px; }
+  }
+      
+   </style> 
+    
+  </head> 
+  
   <body>
     <!-- HUD (invisível até detectar o track) -->
     <div id="hud" class="hidden">
@@ -23,8 +57,14 @@
     <div id="game-over-screen" class="hidden">
       <div class="game-over-content">
         <h2 id="game-over-message"></h2>
-        <button class="" id="restart-btn">Reiniciar</button>
-        <button class="" id="choose-btn">Menu</button>
+        
+        <button class="card" id="restart-btn">
+         <img src="Imagens/btn_Reiniciar.png" alt="reiniciar">
+        </button>
+        <button class="card" id="choose-btn">
+           <img src="Imagens/btn_menu.png" alt="menu">
+        </button>
+        
       </div>
     </div>
 
