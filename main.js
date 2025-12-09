@@ -145,7 +145,7 @@ function endGame(message) {
   gameOverScreen.classList.remove("hidden");
 
   document.getElementById("restart-btn").onclick = () => location.reload();
-  document.getElementById("choose-btn").onclick = () => window.location.href = "escolha.html";
+  document.getElementById("choose-btn").onclick = () => window.location.href = "index.html";
 }
 
 // 🔹 AR: controle do track
